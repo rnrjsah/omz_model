@@ -1,4 +1,3 @@
-#def loader()
 import os
 import shutil
 
