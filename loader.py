@@ -42,3 +42,8 @@ try:
     shutil.rmtree('intel')
 except Exception:
     pass
+
+try:
+    
+except Exception:
+    pass
