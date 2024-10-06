@@ -44,6 +44,30 @@ except Exception:
     pass
 
 try:
+    for i in range (text_length_int):
+        if (list_int[i] == "public"):
+            os.chdir("public")
+            path_int = os.getcwd()
+    list_int_1 = os.listdir(path=".")
+    text_length_int_1 = len(os.listdir(path="."))
+
+    for i in range (text_length_int_1):
+        if (list_int_1[i] == model):
+            os.chdir(model)
+            path_fac = os.getcwd()
+    list_fac = os.listdir(path=".")
+    text_length_fac = len(os.listdir(path="."))
     
+    
+    for i in range (text_length_fac):
+        if (list_fac[i] == "FP16"):
+            os.chdir("FP16")
+            path_fac_FP = os.getcwd()
+    list_fac_mod = os.listdir(path=".")
+    text_length_fac_mod = len(os.listdir(path="."))
+    shutil.move(model+'.bin',model_directory)
+    shutil.move(model+'.xml',model_directory)
+    os.chdir(default_directory)
+    shutil.rmtree('public')
 except Exception:
     pass
