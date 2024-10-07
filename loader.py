@@ -4,13 +4,14 @@ import shutil
 !omz_downloader --print_all
 model = input()
 !omz_downloader --name {model} --precision FP16    
+default_directory = os.getcwd()
 try:
     os.mkdir('model')
+    os.chdir("model")
+    model_directory = os.getcwd()
 except Exception:
-    pass
-default_directory = os.getcwd()
-os.chdir("model")
-model_directory = os.getcwd() 
+    pass 
+
 os.chdir(default_directory)
 list_int = os.listdir(path=".")
 text_length_int = len(os.listdir(path="."))
@@ -31,9 +32,15 @@ try:
     list_fac = os.listdir(path=".")
     text_length_fac = len(os.listdir(path="."))
     for i in range (text_length_fac):
+        
         if (list_fac[i] == "FP16"):
             os.chdir("FP16")
             path_fac_FP = os.getcwd()
+        
+        elif (list_fac[i] == "FP32"):
+            os.chdir("FP32")
+            path_fac_FP = os.getcwd()
+            
     list_fac_mod = os.listdir(path=".")
     text_length_fac_mod = len(os.listdir(path="."))
     shutil.move(model+'.bin',model_directory)
